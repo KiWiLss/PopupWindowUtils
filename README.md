@@ -4,7 +4,7 @@
 #  展示
 <img width="150" height="150" src="https://github.com/KiWiLss/PopupWindowUtils/blob/master/screenshots/S70525-232824.jpg"/>
 <img width="300" height="300" src="https://github.com/KiWiLss/PopupWindowUtils/blob/master/screenshots/S70525-232832.jpg"/>
-# 1,引入
+#  1,引入
         <1>allprojects {
         repositories {
        			...
@@ -14,7 +14,7 @@
        	<2>dependencies {
            	        compile 'com.github.KiWiLss:PopupWindowUtils:1.0.0'
            	}
-# 2,简单使用
+#  2,简单使用
          //1,初始化对象
                        PopupWindowUtils utils1 = new PopupWindowUtils(btnCenter);
                        //2,设置内容
@@ -22,7 +22,7 @@
                        //3,展示
                        //utils1.showCenter();//没有阴影效果
                        utils1.showCenterWithAlpha();//有阴影效果
- # 3,其它方法
+ #  3,其它方法
                 <1>
                 //获取布局控件的方法
                  TextView tv2 = (TextView) utils2.findId(R.id.tv_pw_text);
