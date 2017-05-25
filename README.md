@@ -2,7 +2,7 @@
 简单的PopupWindow对话框的封装
 ------
 #  展示
-        ![image]](https://github.com/KiWiLss/PopupWindowUtils/blob/master/screenshots/device-2017-05-25-231531.png)
+       ![github](https://github.com/KiWiLss/PopupWindowUtils/blob/master/screenshots/device-2017-05-25-231531.png "github")
 # 1,引入
         <1>allprojects {
         repositories {
