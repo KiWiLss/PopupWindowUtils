@@ -2,8 +2,6 @@
 简单的PopupWindow对话框的封装
 ------
 #  展示
-<img width="150" height="150" src="https://github.com/KiWiLss/PopupWindowUtils/blob/master/screenshots/S70525-232824.jpg"/>
-<img width="300" height="300" src="https://github.com/KiWiLss/PopupWindowUtils/blob/master/screenshots/S70525-232832.jpg"/>
 #  1,引入
         <1>allprojects {
         repositories {
