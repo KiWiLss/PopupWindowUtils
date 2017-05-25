@@ -1,13 +1,92 @@
 package com.kiwi.popupwindowutils;
 
+import android.content.DialogInterface;
+import android.support.annotation.UiThread;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.kiwi.library.PopupWindowUtils;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private Button btnCenter;
+    private Button btnBottom;
+    private Button btnLeft;
+    private Button btnRight;
+    private Button btnTop;
+    private Button btnCustom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //使用实例
+        initView();
+        initEvent();
+    }
+
+    private void initEvent() {
+        btnBottom.setOnClickListener(this);
+        btnCenter.setOnClickListener(this);
+        btnLeft.setOnClickListener(this);
+        btnRight.setOnClickListener(this);
+        btnTop.setOnClickListener(this);
+        btnCustom.setOnClickListener(this);
+    }
+
+    private void initView() {
+        btnCenter = (Button) findViewById(R.id.btn_main_center);
+        btnBottom = (Button) findViewById(R.id.btn_main_bottom);
+        btnLeft = (Button) findViewById(R.id.btn_main_left);
+        btnRight = (Button) findViewById(R.id.btn_main_right);
+        btnTop = (Button) findViewById(R.id.btn_main_top);
+        btnCustom = (Button) findViewById(R.id.btn_main_custom);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_main_center:
+                //1,初始化对象
+                PopupWindowUtils utils1 = new PopupWindowUtils(btnCenter);
+                //2,设置内容
+                utils1.setContentView(R.layout.test_pw);
+                //3,展示
+                //utils1.showCenter();//没有阴影效果
+                utils1.showCenterWithAlpha();
+                break;
+            case R.id.btn_main_bottom:
+                PopupWindowUtils utils2 = new PopupWindowUtils(btnCenter);
+                utils2.setContentView(R.layout.test_pw);
+                //获取布局控件的方法
+                TextView tv2 = (TextView) utils2.findId(R.id.tv_pw_text);
+                tv2.setText("底部对话框");
+                utils2.showBottomWithAlpha();
+                //utils2.showTop();//展示在底部
+                break;
+            case R.id.btn_main_left://左侧进入菜单
+                PopupWindowUtils utils3 = new PopupWindowUtils(btnLeft);
+                utils3.setContentView(R.layout.test_pw);
+                utils3.showLikePopDownLeftMenu();
+                break;
+            case R.id.btn_main_right://右侧进入菜单
+                PopupWindowUtils utils4 = new PopupWindowUtils(btnRight);
+                utils4.setContentView(R.layout.test_pw);
+                utils4.showLikePopDownRightMenu();
+                break;
+            case R.id.btn_main_top:
+                PopupWindowUtils utils5 = new PopupWindowUtils(btnTop);
+                utils5.setContentView(R.layout.test_pw);
+                utils5.showLikeQuickAction();
+                break;
+            case R.id.btn_main_custom://自定义距离
+                PopupWindowUtils utils6 = new PopupWindowUtils(btnCustom);
+                utils6.setContentView(R.layout.test_pw);
+                utils6.showLikeQuickAction(100,100);
+                break;
+        }
     }
 }
