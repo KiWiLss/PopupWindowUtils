@@ -1,5 +1,6 @@
 # PopupWindowUtils
-简单的PopupWindow对话框的封装------
+简单的PopupWindow对话框的封装
+------
 1,引入
     <1>allprojects {
        		repositories {
