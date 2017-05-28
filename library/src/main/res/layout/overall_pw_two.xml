@@ -6,11 +6,12 @@
 
 
     <LinearLayout
-        android:layout_width="@dimen/margin300"
+        android:layout_width="@dimen/m300"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
-        android:background="@drawable/bg_white_small_radiu">
+        android:background="@drawable/bg_white_small_radiu"
+        >
 
         <!--标题-->
         <TextView
@@ -18,24 +19,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hint"
-            android:textSize="@dimen/margin18"
+            android:textSize="@dimen/m18"
             android:textColor="@color/black"
             android:layout_gravity="center_horizontal"
-            android:padding="@dimen/margin15"/>
+            android:padding="@dimen/m15"/>
         <TextView
             android:id="@+id/tv_pw_twotitle_titleTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hint"
-            android:textSize="@dimen/margin15"
+            android:textSize="@dimen/m15"
             android:textColor="@color/black"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/margin25"
-            android:layout_marginTop="@dimen/radiu5"
+            android:layout_marginBottom="@dimen/m25"
+            android:layout_marginTop="@dimen/m5"
            />
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/margin0.5"
+            android:layout_height="@dimen/m0.5"
             android:background="@color/grayBF"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,14 +47,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/cancel"
-                android:textSize="30px"
+                android:textSize="@dimen/m15"
                 android:textColor="@color/black"
                 android:gravity="center"
-                android:padding="@dimen/margin15"
+                android:padding="@dimen/m15"
                 android:background="?attr/selectableItemBackground"/>
 
             <View
-                android:layout_width="@dimen/margin0.5"
+                android:layout_width="@dimen/m0.5"
                 android:layout_height="match_parent"
                 android:background="@color/grayBF"/>
             <TextView
@@ -62,10 +63,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/sure"
-                android:textSize="@dimen/margin15"
+                android:textSize="@dimen/m15"
                 android:textColor="@color/black"
                 android:gravity="center"
-                android:padding="@dimen/margin15"
+                android:padding="@dimen/m15"
                 android:background="?attr/selectableItemBackground"/>
         </LinearLayout>
 
