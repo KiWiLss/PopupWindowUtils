@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin0.5">0.5dp</dimen>
+    <dimen name="radiu5">5dp</dimen>
+    <dimen name="radiu10">10dp</dimen>
+    <dimen name="margin1">1dp</dimen>
+    <dimen name="margin15">15dp</dimen>
+    <dimen name="margin18">18dp</dimen>
+    <dimen name="margin20">20dp</dimen>
+    <dimen name="margin25">25dp</dimen>
+    <dimen name="margin30">30dp</dimen>
+    <dimen name="margin40">40dp</dimen>
+    <dimen name="margin300">300dp</dimen>
+</resources>

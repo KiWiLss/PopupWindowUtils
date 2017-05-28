@@ -43,5 +43,10 @@
         android:id="@+id/btn_main_custom"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="自定义距离菜单对话框"/>
+        android:text="一个标题通用对话框"/>
+    <Button
+        android:id="@+id/btn_main_custom2"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="两个标题通用对话框"/>
 </LinearLayout>

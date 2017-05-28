@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="@dimen/margin300"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_white_small_radiu">
+
+        <!--标题-->
+        <TextView
+            android:id="@+id/tv_pw_onetitle_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hint"
+            android:textSize="@dimen/margin18"
+            android:textColor="@color/black"
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/margin25"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin0.5"
+            android:background="@color/grayBF"
+           />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_pw_onetitle_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/cancel"
+                android:textSize="@dimen/margin15"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:padding="@dimen/margin15"
+                android:background="?attr/selectableItemBackground"/>
+
+            <View
+                android:layout_width="@dimen/margin0.5"
+                android:layout_height="match_parent"
+                android:background="@color/grayBF"/>
+            <TextView
+                android:id="@+id/tv_pw_onetitle_sure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/sure"
+                android:textSize="@dimen/margin15"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:padding="@dimen/margin15"
+                android:background="?attr/selectableItemBackground"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

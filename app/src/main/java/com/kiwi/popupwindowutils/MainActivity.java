@@ -1,13 +1,14 @@
 package com.kiwi.popupwindowutils;
 
-import android.content.DialogInterface;
-import android.support.annotation.UiThread;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.kiwi.library.PWOneUtils;
+import com.kiwi.library.PWTwoUtils;
 import com.kiwi.library.PopupWindowUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnRight;
     private Button btnTop;
     private Button btnCustom;
+    private Button btnCustom2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnRight.setOnClickListener(this);
         btnTop.setOnClickListener(this);
         btnCustom.setOnClickListener(this);
+        btnCustom2.setOnClickListener(this);
     }
 
     private void initView() {
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnRight = (Button) findViewById(R.id.btn_main_right);
         btnTop = (Button) findViewById(R.id.btn_main_top);
         btnCustom = (Button) findViewById(R.id.btn_main_custom);
+        btnCustom2 = (Button) findViewById(R.id.btn_main_custom2);
     }
 
     @Override
@@ -83,9 +87,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 utils5.showLikeQuickAction();
                 break;
             case R.id.btn_main_custom://自定义距离
-                PopupWindowUtils utils6 = new PopupWindowUtils(btnCustom);
-                utils6.setContentView(R.layout.test_pw);
-                utils6.showLikeQuickAction(100,100);
+//                PopupWindowUtils utils6 = new PopupWindowUtils(btnCustom);
+//                utils6.setContentView(R.layout.test_pw);
+//                utils6.showLikeQuickAction(100,100);
+                PWOneUtils instance = PWOneUtils.getInstance(this);
+                //可以通过instance设置标题,颜色,是否加粗等
+                PWOneUtils.getInstance(this).showPw(btnCustom, new PWOneUtils.SureAndCancelListener() {
+                    @Override
+                    public void sureListener(PopupWindowUtils util) {
+                        Toast.makeText(MainActivity.this, "sure", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void cancelListener(PopupWindowUtils util) {
+                        Toast.makeText(MainActivity.this, "cancel", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                break;
+            case R.id.btn_main_custom2:
+                PWTwoUtils twoUtils = PWTwoUtils.getInstance(this);
+               // twoUtils.setHint("确定要吃饭吗?",0,false);
+                twoUtils.setTitleAndColor("一定要去吃饭?",0);
+                twoUtils.setSureBg(R.color.colorAccent);
+                twoUtils.showPw(btnCustom2, new PWTwoUtils.SureAndCancelListener() {
+                    @Override
+                    public void sureListener(PopupWindowUtils util) {
+                        Toast.makeText(MainActivity.this, "sure", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void cancelListener(PopupWindowUtils util) {
+                        Toast.makeText(MainActivity.this, "cancel", Toast.LENGTH_SHORT).show();
+                    }
+                });
                 break;
         }
     }
