@@ -1,9 +1,16 @@
 package com.kiwi.popupwindowutils;
 
+import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnTop;
     private Button btnCustom;
     private Button btnCustom2;
+    private Button btnCustom3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnTop.setOnClickListener(this);
         btnCustom.setOnClickListener(this);
         btnCustom2.setOnClickListener(this);
+        btnCustom3.setOnClickListener(this);
     }
 
     private void initView() {
@@ -48,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnTop = (Button) findViewById(R.id.btn_main_top);
         btnCustom = (Button) findViewById(R.id.btn_main_custom);
         btnCustom2 = (Button) findViewById(R.id.btn_main_custom2);
+        btnCustom3 = (Button) findViewById(R.id.btn_main_custom3);
     }
 
     @Override
@@ -121,6 +131,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
                 break;
+            case R.id.btn_main_custom3:
+                showPw();
+                break;
         }
+    }
+
+    private void showPw() {
+        screenDarken(this);
+        View contentVeiw
+                = LayoutInflater.from(this).inflate(R.layout.test_pw, null);
+        PopupWindow popupWindow = new PopupWindow(contentVeiw,
+                WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
+        popupWindow.setFocusable(true);
+        popupWindow.setBackgroundDrawable(new ColorDrawable());
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setAnimationStyle(R.style.AnimFadeCenter);
+        View rootVeiw
+                = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
+        popupWindow.showAtLocation(rootVeiw, Gravity.CENTER,0,0);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                screenLight(MainActivity.this);
+            }
+        });
+    }
+    /*使整个屏幕界面变暗*/
+    public void screenDarken(Activity activity) {
+        Window window = activity.getWindow();
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.alpha = 0.6f;//设置整个屏幕的透明度为0.5
+        window.setAttributes(attributes);
+    }
+    public void screenLight(Activity activity) {
+        Window window = activity.getWindow();
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.alpha = 1f;//设置整个屏幕的透明度为1
+        window.setAttributes(attributes);
     }
 }

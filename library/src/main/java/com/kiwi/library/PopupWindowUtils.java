@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -41,7 +42,7 @@ public class PopupWindowUtils {
         this.window = new MPopupWindow(anchor.getContext());
 
         // 点击window以外，自动关闭
-        this.window.setTouchInterceptor(new View.OnTouchListener() {
+       /* this.window.setTouchInterceptor(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
@@ -50,7 +51,7 @@ public class PopupWindowUtils {
                 }
                 return false;
             }
-        });
+        });*/
 
         this.windowManager = (WindowManager) this.anchor.getContext()
                 .getSystemService(Context.WINDOW_SERVICE);
@@ -79,14 +80,14 @@ public class PopupWindowUtils {
         onShow();
 
         if (this.background == null) {
-            this.window.setBackgroundDrawable(new BitmapDrawable());
+            this.window.setBackgroundDrawable(new ColorDrawable());
         } else {
             this.window.setBackgroundDrawable(this.background);
         }
 
         this.window.setWidth(WindowManager.LayoutParams.WRAP_CONTENT);
         this.window.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
-        this.window.setTouchable(true);
+       // this.window.setTouchable(true);
         this.window.setFocusable(true);
         this.window.setOutsideTouchable(mOutsideTouchable);
 
@@ -185,20 +186,40 @@ public class PopupWindowUtils {
         onShow();
 
         if (this.background == null) {
-            this.window.setBackgroundDrawable(new BitmapDrawable());
+            this.window.setBackgroundDrawable(new ColorDrawable());
         } else {
             this.window.setBackgroundDrawable(this.background);
         }
-
-        dimBackgroundWithAnimation(1.0f, 0.5f);
+        screenDarken(getActivityFromView(anchor));
+        //dimBackgroundWithAnimation(1.0f, 0.5f);
         this.window.setWidth(WindowManager.LayoutParams.WRAP_CONTENT);
         this.window.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
-        this.window.setTouchable(true);
+        //this.window.setTouchable(true);
         this.window.setFocusable(true);
         this.window.setOutsideTouchable(mOutsideTouchable);
 
         this.window.setContentView(this.root);
         // Common.setGray((Activity) anchor.getContext());
+        this.window.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                screenLight(getActivityFromView(anchor));
+            }
+        });
+    }
+
+    /*使整个屏幕界面变暗*/
+    public void screenDarken(Activity activity) {
+        Window window = activity.getWindow();
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.alpha = 0.6f;//设置整个屏幕的透明度为0.5
+        window.setAttributes(attributes);
+    }
+    public void screenLight(Activity activity) {
+        Window window = activity.getWindow();
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.alpha = 1f;//设置整个屏幕的透明度为1
+        window.setAttributes(attributes);
     }
 
     /**
@@ -438,7 +459,8 @@ public class PopupWindowUtils {
      */
     public void showCenterWithAlpha() {
         this.preShowAlpha();
-        this.window.setAnimationStyle(R.style.GrowFromCenter);//***********
+        //this.window.setAnimationStyle(R.style.GrowFromCenter);//***********
+        this.window.setAnimationStyle(R.style.AnimFadeCenter);//***********
         this.window.showAtLocation(this.anchor, Gravity.CENTER, 0, 0);
     }
 
