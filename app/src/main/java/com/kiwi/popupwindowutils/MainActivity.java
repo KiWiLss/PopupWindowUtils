@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         popupWindow.setFocusable(true);
         popupWindow.setBackgroundDrawable(new ColorDrawable());
         popupWindow.setOutsideTouchable(true);
-        popupWindow.setAnimationStyle(R.style.AnimFadeCenter);
+        popupWindow.setAnimationStyle(R.style.AnimFadeCenter2);
         View rootVeiw
                 = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
         popupWindow.showAtLocation(rootVeiw, Gravity.CENTER,0,0);
