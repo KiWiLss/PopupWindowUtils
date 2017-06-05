@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.kiwi.library.PWOneUtils;
 import com.kiwi.library.PWTwoUtils;
+import com.kiwi.library.PopupOneUtils;
 import com.kiwi.library.PopupWindowUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -132,7 +133,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 break;
             case R.id.btn_main_custom3:
-                showPw();
+                //showPw();
+                PopupOneUtils popupOneUtils = new PopupOneUtils(this, new PopupOneUtils.ContentClickListener() {
+                    @Override
+                    public void sureClickListener() {
+                        Toast.makeText(MainActivity.this, "sure", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void cancelClickListener() {
+
+                    }
+                });
+                popupOneUtils.setTitleAndColor("你好啊",0,false);
+                popupOneUtils.setSureTextAndColor("一定",R.color.colorAccent,R.color.black);
+               // popupOneUtils.setAnimationStyle(R.style.PushInBottom);
+                popupOneUtils.showCenter(this);
+                //popupOneUtils.showBottom(this);
                 break;
         }
     }
@@ -146,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         popupWindow.setFocusable(true);
         popupWindow.setBackgroundDrawable(new ColorDrawable());
         popupWindow.setOutsideTouchable(true);
-        popupWindow.setAnimationStyle(R.style.AnimFadeCenter2);
+        popupWindow.setAnimationStyle(R.style.AnimFadeCenter);
         View rootVeiw
                 = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
         popupWindow.showAtLocation(rootVeiw, Gravity.CENTER,0,0);

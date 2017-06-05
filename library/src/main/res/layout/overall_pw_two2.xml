@@ -1,39 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<android.support.v7.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/m5"
+    android:layout_gravity="center">
 
     <LinearLayout
         android:layout_width="@dimen/m300"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center"
-        android:background="@drawable/bg_white_small_radiu">
-
+        android:background="@drawable/bg_white_small_radiu"
+        >
         <!--标题-->
         <TextView
-            android:id="@+id/tv_pw_onetitle_title"
+            android:id="@+id/tv_pw_twotitle_titleOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hint"
             android:textSize="@dimen/m18"
             android:textColor="@color/black"
             android:layout_gravity="center_horizontal"
-            android:padding="@dimen/m25"/>
-
+            android:padding="@dimen/m15"/>
+        <TextView
+            android:id="@+id/tv_pw_twotitle_titleTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hint"
+            android:textSize="@dimen/m15"
+            android:textColor="@color/black"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/m25"
+            android:layout_marginTop="@dimen/m5"
+            />
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/m0.5"
-            android:background="@color/grayBF"
-           />
+            android:background="@color/grayBF"/>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-           >
+            android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/tv_pw_onetitle_cancel"
+                android:id="@+id/tv_pw_twotitle_cancel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -42,14 +55,14 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:padding="@dimen/m15"
-                />
+                android:background="?attr/selectableItemBackground"/>
 
             <View
                 android:layout_width="@dimen/m0.5"
                 android:layout_height="match_parent"
                 android:background="@color/grayBF"/>
             <TextView
-                android:id="@+id/tv_pw_onetitle_sure"
+                android:id="@+id/tv_pw_twotitle_sure"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -58,10 +71,14 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:padding="@dimen/m15"
-               />
+                android:background="?attr/selectableItemBackground"/>
         </LinearLayout>
 
 
     </LinearLayout>
+
+
+</android.support.v7.widget.CardView>
+
 
 </LinearLayout>
