@@ -27,7 +27,10 @@
                 android:textSize="@dimen/m18"
                 android:textColor="@color/black"
                 android:layout_gravity="center_horizontal"
-                android:padding="@dimen/m25"/>
+                android:padding="@dimen/m25"
+                android:layout_marginLeft="@dimen/m15"
+                android:layout_marginRight="@dimen/m15"
+               />
 
             <View
                 android:layout_width="match_parent"

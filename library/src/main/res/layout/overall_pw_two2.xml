@@ -37,6 +37,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/m25"
             android:layout_marginTop="@dimen/m5"
+            android:layout_marginLeft="@dimen/m15"
+            android:layout_marginRight="@dimen/m15"
             />
         <View
             android:layout_width="match_parent"
