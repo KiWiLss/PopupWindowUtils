@@ -79,7 +79,7 @@ public  abstract  class BottomPushPopupWindow<T>  extends PopupWindow {
         super.dismiss();
     }
 
-    /**
+    /**作为对话框显示
      *  显示在界面的底部
      */
     public  void  showBottom(Activity activity)  {
@@ -91,6 +91,11 @@ public  abstract  class BottomPushPopupWindow<T>  extends PopupWindow {
     public  void  showTop(Activity activity)  {
         showAtLocation(activity.getWindow().getDecorView(),  Gravity.TOP  |  Gravity.CENTER_HORIZONTAL,  0,  0);
     }
+
+    public void showDrop(View view,int  xoff,  int  yoff){
+        showAsDropDown(view,xoff,yoff);
+    }
+
 
     private  void  addMaskView(IBinder token)  {
         WindowManager.LayoutParams  p  =  new  WindowManager.LayoutParams();

@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.kiwi.library.PWOneUtils;
 import com.kiwi.library.PWTwoUtils;
 import com.kiwi.library.PopupOneUtils;
+import com.kiwi.library.PopupUtils;
 import com.kiwi.library.PopupWindowUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnCustom;
     private Button btnCustom2;
     private Button btnCustom3;
+    private Button btnPwCenter;
+    private Button btnPwDrop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCustom.setOnClickListener(this);
         btnCustom2.setOnClickListener(this);
         btnCustom3.setOnClickListener(this);
+        btnPwCenter.setOnClickListener(this);
+        btnPwDrop.setOnClickListener(this);
     }
 
     private void initView() {
@@ -59,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCustom = (Button) findViewById(R.id.btn_main_custom);
         btnCustom2 = (Button) findViewById(R.id.btn_main_custom2);
         btnCustom3 = (Button) findViewById(R.id.btn_main_custom3);
+        btnPwCenter = (Button) findViewById(R.id.btn_main_pwCenter);
+        btnPwDrop = (Button) findViewById(R.id.btn_main_pwDrop);
     }
 
     @Override
@@ -150,6 +157,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                // popupOneUtils.setAnimationStyle(R.style.PushInBottom);
                 popupOneUtils.showCenter(this);
                 //popupOneUtils.showBottom(this);
+                break;
+            case R.id.btn_main_pwCenter://可随意更改动画效果,
+                PopupUtils popupUtils = new PopupUtils(this, R.layout.overall_pw_one);
+                popupUtils.setAnimationStyle(R.style.PushInBottom);//设置动画效果
+                popupUtils.showCenter(this);//设置展示位置
+                break;
+            case R.id.btn_main_pwDrop:
+                PopupUtils popupUtils2 = new PopupUtils(this, R.layout.overall_pw_one);
+                popupUtils2.setAnimationStyle(R.style.PopDownRightMenu);//设置动画
+                //popupUtils2.showAsDropDown(btnPwDrop);
+                popupUtils2.showDrop(btnPwDrop,0,0);
                 break;
         }
     }
