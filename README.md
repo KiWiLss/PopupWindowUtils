@@ -11,7 +11,7 @@
        		}
        	}
        	<2>dependencies {
-           	        compile 'com.github.KiWiLss:PopupWindowUtils:1.0.0'
+           	        compile 'com.github.KiWiLss:PopupWindowUtils:最新版'
            	}
 #  2,简单使用
          //1,初始化对象
