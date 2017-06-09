@@ -6,7 +6,7 @@
         <1>allprojects {
         repositories {
        			...
-       			maven { url 'https://www.jitpack.io' }
+       			maven { url 'https://jitpack.io' }
        		}
        	}
        	<2>dependencies {
