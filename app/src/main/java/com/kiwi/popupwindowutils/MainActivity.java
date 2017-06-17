@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.kiwi.library.PWOneUtils;
 import com.kiwi.library.PWTwoUtils;
 import com.kiwi.library.PopupOneUtils;
-import com.kiwi.library.PopupTwoUtils;
 import com.kiwi.library.PopupUtils;
 import com.kiwi.library.PopupWindowUtils;
 
@@ -146,20 +145,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 break;
             case R.id.btn_main_custom3:
-                PopupTwoUtils popupTwoUtils = new PopupTwoUtils(this, new PopupOneUtils.ContentClickListener() {
-                    @Override
-                    public void sureClickListener() {//
-
-                    }
-
-                    @Override
-                    public void cancelClickListener() {
-                            //默认点击对话框消失,无别的要求可不写
-                    }
-                });
-                popupTwoUtils.setHint("",0,false);//设置提示标题
-
-                //showPw();
                 PopupOneUtils popupOneUtils = new PopupOneUtils(this, new PopupOneUtils.ContentClickListener() {
                     @Override
                     public void sureClickListener() {
