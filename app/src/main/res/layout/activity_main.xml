@@ -72,6 +72,11 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:text="popupUtis菜单"/>
+        <Button
+            android:id="@+id/btn_main_photo"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="photo界面"/>
     </LinearLayout>
 
 

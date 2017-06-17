@@ -1,6 +1,7 @@
 package com.kiwi.popupwindowutils;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnCustom3;
     private Button btnPwCenter;
     private Button btnPwDrop;
+    private Button btnPhoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCustom3.setOnClickListener(this);
         btnPwCenter.setOnClickListener(this);
         btnPwDrop.setOnClickListener(this);
+        btnPhoto.setOnClickListener(this);
     }
 
     private void initView() {
@@ -66,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCustom3 = (Button) findViewById(R.id.btn_main_custom3);
         btnPwCenter = (Button) findViewById(R.id.btn_main_pwCenter);
         btnPwDrop = (Button) findViewById(R.id.btn_main_pwDrop);
+        btnPhoto = (Button) findViewById(R.id.btn_main_photo);
     }
 
     @Override
@@ -168,6 +172,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 popupUtils2.setAnimationStyle(R.style.PopDownRightMenu);//设置动画
                 //popupUtils2.showAsDropDown(btnPwDrop);
                 popupUtils2.showDrop(btnPwDrop,0,0);
+                break;
+            case R.id.btn_main_photo:
+                startActivity(new Intent(this,PhotoTestActivity.class));
                 break;
         }
     }
