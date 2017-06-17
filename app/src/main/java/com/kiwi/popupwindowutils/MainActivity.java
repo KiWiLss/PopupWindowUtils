@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.kiwi.library.PWOneUtils;
 import com.kiwi.library.PWTwoUtils;
 import com.kiwi.library.PopupOneUtils;
+import com.kiwi.library.PopupTwoUtils;
 import com.kiwi.library.PopupUtils;
 import com.kiwi.library.PopupWindowUtils;
 
@@ -128,9 +129,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_main_custom2:
                 PWTwoUtils twoUtils = PWTwoUtils.getInstance(this);
-               // twoUtils.setHint("确定要吃饭吗?",0,false);
-                twoUtils.setTitleAndColor("一定要去吃饭?",0);
-                twoUtils.setSureBg(R.color.colorAccent);
+               // twoUtils.setHint("确定要吃饭吗?",0,false);//设置提示标题
+                twoUtils.setTitleAndColor("一定要去吃饭?",0);//设置内容标题
+                twoUtils.setSureBg(R.color.colorAccent);//右侧按钮背景
+                twoUtils.setSureTextColor("",0);//右侧按钮文字和颜色
                 twoUtils.showPw(btnCustom2, new PWTwoUtils.SureAndCancelListener() {
                     @Override
                     public void sureListener(PopupWindowUtils util) {
@@ -144,6 +146,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 break;
             case R.id.btn_main_custom3:
+                PopupTwoUtils popupTwoUtils = new PopupTwoUtils(this, new PopupOneUtils.ContentClickListener() {
+                    @Override
+                    public void sureClickListener() {//
+
+                    }
+
+                    @Override
+                    public void cancelClickListener() {
+                            //默认点击对话框消失,无别的要求可不写
+                    }
+                });
+                popupTwoUtils.setHint("",0,false);//设置提示标题
+
                 //showPw();
                 PopupOneUtils popupOneUtils = new PopupOneUtils(this, new PopupOneUtils.ContentClickListener() {
                     @Override
@@ -156,16 +171,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 });
-                popupOneUtils.setTitleAndColor("你好啊",0,false);
-                popupOneUtils.setSureTextAndColor("一定",R.color.colorAccent,R.color.black);
+                popupOneUtils.setTitleAndColor("你好啊",0,false);//1,文字2,文字颜色,3,文字是否加粗
+                popupOneUtils.setSureTextAndColor("一定",R.color.colorAccent,R.color.black);//1,文字2,文字颜色3,按钮背景
                // popupOneUtils.setAnimationStyle(R.style.PushInBottom);
-                popupOneUtils.showCenter(this);
+                popupOneUtils.showCenter(this);//通常都是居中展示
                 //popupOneUtils.showBottom(this);
                 break;
             case R.id.btn_main_pwCenter://可随意更改动画效果,
                 PopupUtils popupUtils = new PopupUtils(this, R.layout.overall_pw_one);
                 popupUtils.setAnimationStyle(R.style.PushInBottom);//设置动画效果
                 popupUtils.showCenter(this);//设置展示位置
+                //popupUtils.getItemView(R.id.....);//获取对话框里的控件
                 break;
             case R.id.btn_main_pwDrop:
                 PopupUtils popupUtils2 = new PopupUtils(this, R.layout.overall_pw_one);
