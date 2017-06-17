@@ -71,7 +71,7 @@
                        PopupWindowUtils utils6 = new PopupWindowUtils(btnCustom);
                                     utils6.setContentView(R.layout.test_pw);
                                     utils6.showLikeQuickAction(100,100);
-    # 3,拍照,打开相册的使用
+#  3,拍照,打开相册的使用
 
         //1,新建一个对象
         photoUtils = new PhotoUtils(this);
