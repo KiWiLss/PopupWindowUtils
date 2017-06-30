@@ -74,7 +74,7 @@ public class PopupOneUtils extends BottomPushPopupWindow<PopupOneUtils.ContentCl
         tvSure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                contentClickListener.sureClickListener();
+                contentClickListener.sureClickListener(PopupOneUtils.this);
             }
         });
         return contentView;
@@ -83,7 +83,7 @@ public class PopupOneUtils extends BottomPushPopupWindow<PopupOneUtils.ContentCl
 
 
     public interface ContentClickListener{
-        void sureClickListener();
+        void sureClickListener(PopupOneUtils pou);
         void cancelClickListener();
     }
 }

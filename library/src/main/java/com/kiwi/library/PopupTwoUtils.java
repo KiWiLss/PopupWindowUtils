@@ -1,5 +1,6 @@
 package com.kiwi.library;
 
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
@@ -12,13 +13,18 @@ import android.widget.TextView;
  * Email:2763015920@qq.com
  */
 
-public class PopupTwoUtils extends BottomPushPopupWindow<PopupOneUtils.ContentClickListener>{
+public class PopupTwoUtils extends BottomPushPopupWindow<PopupTwoUtils.ContentTClickListener>{
 
 
     private TextView tvHint;
     private TextView tvCancel;
     private TextView tvSure;
     private TextView tvTitle;
+
+    public PopupTwoUtils(Context context, ContentTClickListener contentTClickListener) {
+        super(context, contentTClickListener);
+    }
+
     //设置提示
     public void setHint(String hint,int textColor,boolean isBold){
         if (!TextUtils.isEmpty(hint)){
@@ -64,12 +70,12 @@ public class PopupTwoUtils extends BottomPushPopupWindow<PopupOneUtils.ContentCl
         }
     }
 
-    public PopupTwoUtils(Context context, PopupOneUtils.ContentClickListener contentClickListener) {
-        super(context, contentClickListener);
-    }
+//    public PopupTwoUtils(Context context, ContentTClickListener contentClickListener) {
+//        super(context,  contentClickListener);
+//    }
 
     @Override
-    protected View generateCustomView(final PopupOneUtils.ContentClickListener contentClickListener) {
+    protected View generateCustomView(final ContentTClickListener contentClickListener) {
 
         View contentView = View.inflate(context, R.layout.overall_pw_two2, null);
         tvHint = (TextView) contentView.findViewById(R.id.tv_pw_twotitle_titleOne);
@@ -87,14 +93,15 @@ public class PopupTwoUtils extends BottomPushPopupWindow<PopupOneUtils.ContentCl
         tvSure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                contentClickListener.sureClickListener();
+                contentClickListener.sureClickListener(PopupTwoUtils.this);
             }
         });
         return contentView;
     }
 
-    public interface ContentClickListener{
-        void sureClickListener();
+
+    public interface ContentTClickListener{
+        void sureClickListener(PopupTwoUtils ptu);
         void cancelClickListener();
     }
 }
