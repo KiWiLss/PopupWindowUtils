@@ -46,7 +46,7 @@
     </style>
 <!--淡入淡出-->
     <style name="AnimFadeCenter" parent="@android:style/Animation">
-        <item name="android:windowEnterAnimation">@anim/fade_center_in</item>
-        <item name="android:windowExitAnimation">@anim/fade_center_out</item>
+        <item name="@android:windowEnterAnimation">@anim/fade_center_in</item>
+        <item name="@android:windowExitAnimation">@anim/fade_center_out</item>
     </style>
 </resources>
