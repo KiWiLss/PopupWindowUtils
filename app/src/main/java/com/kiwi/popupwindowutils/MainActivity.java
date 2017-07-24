@@ -146,8 +146,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_main_custom3:
                 PopupOneUtils popupOneUtils = new PopupOneUtils(this, new PopupOneUtils.ContentClickListener() {
+
                     @Override
-                    public void sureClickListener() {
+                    public void sureClickListener(PopupOneUtils pou) {
                         Toast.makeText(MainActivity.this, "sure", Toast.LENGTH_SHORT).show();
                     }
 

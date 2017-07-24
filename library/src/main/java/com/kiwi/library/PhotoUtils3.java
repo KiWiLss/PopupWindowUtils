@@ -103,9 +103,14 @@ public class PhotoUtils3 {
         //先判断是否有权限
         boolean permission = isCameraPermission(activity, OPEN_ALBUM);
         if (permission){
-            Intent intent = new Intent("android.intent.action.PICK");
-            intent.setType("image/*");
+
+            Intent intent = new Intent(Intent.ACTION_PICK,
+                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             activity.startActivityForResult(intent, OPEN_ALBUM);
+
+//            Intent intent = new Intent("android.intent.action.PICK");
+//            intent.setType("image/*");
+//            activity.startActivityForResult(intent, OPEN_ALBUM);
         }
 
     }
