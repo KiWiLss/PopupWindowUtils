@@ -4,9 +4,9 @@ package com.kiwi.library;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -14,32 +14,45 @@ import android.widget.TextView;
  * Email:2763015920@qq.com
  */
 
-public class PopupTwoUtils extends BottomPushPopupWindow<PopupTwoUtils.ContentTClickListener>{
+public class PopupTwoUtils2 extends BottomPushPopupWindow<PopupTwoUtils2.ContentTClickListener>{
 
 
     private TextView tvHint;
     private TextView tvCancel;
     private TextView tvSure;
     private TextView tvTitle;
-    private CardView cvCv;
+    private LinearLayout llOuter;
 
-    public PopupTwoUtils(Context context, ContentTClickListener contentTClickListener) {
+
+    public PopupTwoUtils2(Context context, ContentTClickListener contentTClickListener) {
         super(context, contentTClickListener);
     }
 
     /**设置圆角
      * @param multiple
      */
-    public PopupTwoUtils setRadius(int multiple){
-        float dimension1 = context.getResources().getDimension(R.dimen.m5);
-        if (cvCv!=null){
-            cvCv.setRadius(dimension1*multiple);
+    public PopupTwoUtils2 setRadius(int multiple){
+        if (llOuter!=null){
+            switch (multiple) {
+                case 1://圆角为最小
+                    llOuter.setBackgroundResource(R.drawable.bg_white_small_radiu2);
+                    break;
+                case 2://
+                    llOuter.setBackgroundResource(R.drawable.bg_white_small_radiu);
+                    break;
+                case 3://圆角为最大
+                    llOuter.setBackgroundResource(R.drawable.bg_white_small_radiu3);
+                    break;
+                default:
+                    //llOuter.setBackgroundResource(R.drawable.bg_white_small_radiu);
+            }
         }
+
         return this;
     }
 
     //设置提示
-    public PopupTwoUtils setHint(String hint,int textColor,boolean isBold){
+    public PopupTwoUtils2 setHint(String hint, int textColor, boolean isBold){
         if (!TextUtils.isEmpty(hint)){
             tvHint.setText(hint);
         }
@@ -51,7 +64,7 @@ public class PopupTwoUtils extends BottomPushPopupWindow<PopupTwoUtils.ContentTC
         return this;
     }
     //设置标题
-    public PopupTwoUtils setTitle(String title,int textColor,boolean isBold){
+    public PopupTwoUtils2 setTitle(String title, int textColor, boolean isBold){
         if (!TextUtils.isEmpty(title)){
             tvTitle.setText(title);
         }
@@ -62,7 +75,7 @@ public class PopupTwoUtils extends BottomPushPopupWindow<PopupTwoUtils.ContentTC
         }
         return this;
     }
-    public PopupTwoUtils setSureTextAndColor(String text,int textColor,int backColor){
+    public PopupTwoUtils2 setSureTextAndColor(String text, int textColor, int backColor){
         if (!TextUtils.isEmpty(text)){
             tvSure.setText(text);
         }
@@ -74,7 +87,7 @@ public class PopupTwoUtils extends BottomPushPopupWindow<PopupTwoUtils.ContentTC
         }
         return this;
     }
-    public PopupTwoUtils setCancelTextAndColor(String text,int textColor,int backColor){
+    public PopupTwoUtils2 setCancelTextAndColor(String text, int textColor, int backColor){
         if (!TextUtils.isEmpty(text)){
             tvCancel.setText(text);
         }
@@ -94,12 +107,13 @@ public class PopupTwoUtils extends BottomPushPopupWindow<PopupTwoUtils.ContentTC
     @Override
     protected View generateCustomView(final ContentTClickListener contentClickListener) {
 
-        View contentView = View.inflate(context, R.layout.overall_pw_two2, null);
+        View contentView = View.inflate(context, R.layout.overall_pw_two, null);
         tvHint = (TextView) contentView.findViewById(R.id.tv_pw_twotitle_titleOne);
         tvTitle = (TextView) contentView.findViewById(R.id.tv_pw_twotitle_titleTwo);
         tvSure = (TextView) contentView.findViewById(R.id.tv_pw_twotitle_sure);
         tvCancel = (TextView) contentView.findViewById(R.id.tv_pw_twotitle_cancel);
-        cvCv = (CardView) contentView.findViewById(R.id.cv_pw_twotitle_cv);
+
+        llOuter = (LinearLayout) contentView.findViewById(R.id.ll_pw_twotitle_outer);
 
         tvCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +125,7 @@ public class PopupTwoUtils extends BottomPushPopupWindow<PopupTwoUtils.ContentTC
         tvSure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                contentClickListener.sureClickListener(PopupTwoUtils.this);
+                contentClickListener.sureClickListener(PopupTwoUtils2.this);
             }
         });
         return contentView;
@@ -119,7 +133,7 @@ public class PopupTwoUtils extends BottomPushPopupWindow<PopupTwoUtils.ContentTC
 
 
     public interface ContentTClickListener{
-        void sureClickListener(PopupTwoUtils ptu);
+        void sureClickListener(PopupTwoUtils2 ptu);
         void cancelClickListener();
     }
 }

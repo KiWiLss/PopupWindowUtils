@@ -161,9 +161,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 });
+//                popupOneUtils.setTitleAndColor("hellokitty",0,false)
+//                        .setSureTextAndColor("sure",0,0);//链式结构
+
                 popupOneUtils.setTitleAndColor("你好啊",0,false);//1,文字2,文字颜色,3,文字是否加粗
                 popupOneUtils.setSureTextAndColor("一定",R.color.colorAccent,R.color.black);//1,文字2,文字颜色3,按钮背景
                // popupOneUtils.setAnimationStyle(R.style.PushInBottom);
+                popupOneUtils.setRadius(2);//设置圆角,参数是倍数
                 popupOneUtils.showCenter(this);//通常都是居中展示
                 //popupOneUtils.showBottom(this);
                 break;

@@ -6,6 +6,7 @@
 
 
     <LinearLayout
+        android:id="@+id/ll_pw_twotitle_outer"
         android:layout_width="@dimen/m300"
         android:layout_height="wrap_content"
         android:orientation="vertical"
