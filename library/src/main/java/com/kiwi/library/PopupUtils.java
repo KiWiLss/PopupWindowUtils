@@ -24,8 +24,8 @@ public class PopupUtils extends BottomPushPopupWindow<Integer>{
         return contentView;
     }
     //获取内容的单个控件
-    public View getItemView(int itemId){
+    public <T extends View>T getItemView(int itemId){
         View viewById = contentView.findViewById(itemId);
-        return viewById;
+        return (T)viewById;
     }
 }

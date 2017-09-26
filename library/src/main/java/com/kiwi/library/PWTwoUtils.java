@@ -117,9 +117,10 @@ public class PWTwoUtils {
         }
     }
     //设置标题和标题颜色
-    public void setTitleAndColor(String title,int color){
+    public PWTwoUtils setTitleAndColor(String title,int color){
         this.title=title;
         this.titleColor=color;
+        return this;
     }
     //设置提示的内容和颜色,是否加粗
     public void setHint(String text,int hintColor,boolean isBold){
