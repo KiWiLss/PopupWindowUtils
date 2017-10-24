@@ -460,7 +460,8 @@ public class PopupWindowUtils {
     public void showCenterWithAlpha() {
         this.preShowAlpha();
         //this.window.setAnimationStyle(R.style.GrowFromCenter);//***********
-        this.window.setAnimationStyle(R.style.AnimFadeCenter);//***********
+        //this.window.setAnimationStyle(R.style.AnimFadeCenter);//***********
+        this.window.setAnimationStyle(R.style.Shadow);//**********
         this.window.showAtLocation(this.anchor, Gravity.CENTER, 0, 0);
     }
 
