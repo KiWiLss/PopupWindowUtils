@@ -17,7 +17,9 @@ import android.widget.Toast;
 
 import com.kiwi.library.PWOneUtils;
 import com.kiwi.library.PWTwoUtils;
+import com.kiwi.library.PopupOneBtn;
 import com.kiwi.library.PopupOneUtils;
+import com.kiwi.library.PopupTwoBtn;
 import com.kiwi.library.PopupUtils;
 import com.kiwi.library.PopupWindowUtils;
 
@@ -221,5 +223,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         WindowManager.LayoutParams attributes = window.getAttributes();
         attributes.alpha = 1f;//设置整个屏幕的透明度为1
         window.setAttributes(attributes);
+    }
+
+    /**一个标题,一个按钮
+     * @param view
+     */
+    public void oneOneListener(View view) {
+        new PopupOneBtn(this, new PopupOneBtn.BtnClick() {
+            @Override
+            public void sureClickListener(PopupOneBtn pob) {
+                Toast.makeText(MainActivity.this, "hello", Toast.LENGTH_SHORT).show();
+            }
+        }).setRadius(2)
+                .setTitleAndColor("一定以及肯定",0,true)
+                .setSureTextAndColor("",R.color.black,R.color.colorAccent)
+                .showCenter(this);
+    }
+
+    public void twoOneListener(View view) {
+        new PopupTwoBtn(this, new PopupTwoBtn.BtnClick() {
+            @Override
+            public void sureClickListener(PopupTwoBtn ptb) {
+
+            }
+        }).setRadius(2)
+                .setHint("警告",0,false)
+                .setSureTextAndColor("",R.color.colorPrimaryDark,R.color.grayBF)
+                .setTitle("天地覅放得开地方降低肌肤等下开房间诶都挺好ID发生的纠纷ID积分价格",0,false)
+                .showCenter(this);
     }
 }
