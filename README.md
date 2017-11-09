@@ -3,6 +3,7 @@
 尽量用最新版popupUtils
 ------
 #  展示
+![](https://github.com/KiWiLss/PopupWindowUtils/blob/master/screenshots/S70525-232824.jpg)
 #  1,引入
         <1>allprojects {
         repositories {
