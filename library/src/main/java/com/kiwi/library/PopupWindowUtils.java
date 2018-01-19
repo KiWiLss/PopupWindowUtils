@@ -10,7 +10,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -461,7 +460,7 @@ public class PopupWindowUtils {
         this.preShowAlpha();
         //this.window.setAnimationStyle(R.style.GrowFromCenter);//***********
         //this.window.setAnimationStyle(R.style.AnimFadeCenter);//***********
-        this.window.setAnimationStyle(R.style.Shadow);//**********
+        //this.window.setAnimationStyle(R.style.Shadow);//**********
         this.window.showAtLocation(this.anchor, Gravity.CENTER, 0, 0);
     }
 

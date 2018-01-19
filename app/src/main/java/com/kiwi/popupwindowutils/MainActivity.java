@@ -249,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         })
                 //.setRadius(2)
                 .setHint("警告",0,false)
-                //.setSureTextAndColor("",R.color.colorPrimaryDark,R.color.grayBF)
+                .setSureTextAndColor("",R.color.colorPrimaryDark,R.color.grayBF)
                 .setTitle("天地覅放得开地方降低肌肤等下开房间诶都挺好ID发生的纠纷ID积分价格",0,false)
                 .showCenter(this);
     }
